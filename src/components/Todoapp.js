@@ -9,7 +9,7 @@ const TodoApp = () => {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState('');
   const [filter, setFilter] = useState('all');
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleToggle = (index) => {
     const updated = [...todos];
@@ -34,7 +34,7 @@ const TodoApp = () => {
   return (
     <div className={`${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'} min-h-screen relative`}>
       {/* Background Image */}
-      <div className="fixed top-0 left-0 w-full h-60 md:h-80 -z-10">
+      <div className="fixed top-0 left-0 w-full h-60 md:h-80">
         <img
           src={darkMode ? bgDark : bgLight}
           alt="Background"
@@ -43,7 +43,7 @@ const TodoApp = () => {
       </div>
 
       {/* Content */}
-      <div className="max-w-md mx-auto pt-20 px-4">
+      <div className="max-w-md mx-auto pt-20 px-4 relative z-10">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold tracking-[0.3em] text-white">TODO</h1>
@@ -52,7 +52,7 @@ const TodoApp = () => {
             className="text-white"
           >
             <img 
-              src={darkMode ? iconSun : iconMoon} 
+              src={darkMode ? iconSun : iconMoon}
               alt={darkMode ? "Light Mode" : "Dark Mode"} 
               className="w-6 h-6"
             />
@@ -112,7 +112,7 @@ const TodoApp = () => {
         </div>
 
         {/* Drag Hint */}
-        <p className="text-center text-gray-600 mt-10 text-sm">
+        <p className="text-center text-gray-600 mt-20 text-sm">
           Drag and drop to reorder list
         </p>
 
@@ -128,10 +128,7 @@ const TodoApp = () => {
             Frontend Mentor
           </a>
           . Coded by{' '}
-          <a
-            href="#"
-            className="underline hover:text-blue-400"
-          >
+          <a href="#test" className="underline hover:text-blue-400">
             khushi.k
           </a>
           .
